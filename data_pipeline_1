@@ -1,0 +1,15 @@
+#Download data set 
+
+import os
+
+def download_xview2(destination="data/xview2"):
+    os.makedirs(destination, exist_ok=True)
+    print("Download manually from: https://xview2.org/download")
+
+def download_sentflood11(destination="data/sentflood11"):
+    os.makedirs(destination, exist_ok=True)
+    print("Download from: https://zenodo.org/record/3610623")
+
+if __name__ == "__main__":
+    download_xview2()
+    download_sentflood11()
