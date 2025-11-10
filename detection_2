@@ -1,0 +1,8 @@
+#faster_rcnn.py
+import torchvision
+from torchvision.models.detection import fasterrcnn_resnet50_fpn
+
+def load_faster_rcnn():
+    model = fasterrcnn_resnet50_fpn(pretrained=True)
+    model.eval()
+    return model
