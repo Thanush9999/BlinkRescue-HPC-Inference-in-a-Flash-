@@ -1,0 +1,6 @@
+#prune.py
+import torch.nn.utils.prune as prune
+from models.segmentation.unet import UNet
+
+model = UNet()
+prune.random_unstructured(model.encoder[0], name="weight", amount=0.3)
