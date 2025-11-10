@@ -1,0 +1,26 @@
+blinkrescue/
+├── data_pipeline/
+│   ├── download_datasets.py
+│   ├── preprocess.py
+├── models/
+│   ├── segmentation/
+│   │   ├── unet.py
+│   │   └── segformer.py
+│   ├── detection/
+│   │   ├── yolov8.py
+│   │   └── faster_rcnn.py
+├── optimization/
+│   ├── convert_to_onnx.py
+│   ├── quantize.py
+│   └── prune.py
+├── hpc_inference/
+│   ├── slurm_job.sh
+│   ├── distributed_inference.py
+├── visualization/
+│   ├── streamlit_dashboard.py
+│   └── generate_heatmaps.py
+├── notebooks/
+│   └── exploration.ipynb
+├── Dockerfile
+├── README.md
+└── requirements.txt
