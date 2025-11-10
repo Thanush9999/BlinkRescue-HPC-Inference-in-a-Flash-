@@ -1,0 +1,7 @@
+segformer.py
+
+from transformers import SegformerForSemanticSegmentation
+
+def load_segformer():
+    model = SegformerForSemanticSegmentation.from_pretrained("nvidia/segformer-b0-finetuned-ade-512-512")
+    return model
