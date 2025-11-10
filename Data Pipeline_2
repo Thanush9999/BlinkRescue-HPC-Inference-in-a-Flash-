@@ -1,0 +1,23 @@
+#preprocess.py
+import os
+from PIL import Image
+import torch
+from torchvision import transforms
+
+def preprocess_image(img_path, size=(512, 512)):
+    transform = transforms.Compose([
+        transforms.Resize(size),
+        transforms.ToTensor()
+    ])
+    img = Image.open(img_path).convert("RGB")
+    return transform(img)
+
+def batch_preprocess(input_dir, output_dir):
+    os.makedirs(output_dir, exist_ok=True)
+    for fname in os.listdir(input_dir):
+        if fname.endswith(".png") or fname.endswith(".jpg"):
+            tensor = preprocess_image(os.path.join(input_dir, fname))
+            torch.save(tensor, os.path.join(output_dir, fname.replace(".png", ".pt")))
+
+if __name__ == "__main__":
+    batch_preprocess("data/xview2/raw", "data/xview2/preprocessed")
